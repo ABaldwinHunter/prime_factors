@@ -6,17 +6,13 @@ def prime_factors(num, prime_factors=[])
   elsif isPrime?(num)
     prime_factors << num
   else
-    i = 2
-    while i <= Math.sqrt(num)
-      # binding.pry
+    for i in 2..Math.sqrt(num).to_i
       if num % i == 0
         prime_factors << i
         return prime_factors(num/i, prime_factors)
       end
-      i +=1
     end
   end
-  return prime_factors
 end
 
 def isPrime?(num)
